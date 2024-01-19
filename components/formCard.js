@@ -12,52 +12,13 @@ const InputForm = () => {
   })
   const [formValue, setFormValue] = useState();
 
-  const url = "https://backend-pw4m.onrender.com"
+  const url = "http://localhost:5000"
 
   const changeHandler = (e) => {
     setUser({...user,[e.target.name]:e.target.value});
   }
 
-  const submitHandler = async () => {
-
-    const formdata = new FormData();
-    formdata.append("file",formValue);
-    formdata.append("upload_preset","ankitdemo");
-    formdata.append("cloud_name","dyufvjigd");
-
-    const x = await fetch(`https://api.cloudinary.com/v1_1/dyufvjigd/image/upload`, {
-      method: 'POST',
-      body: formdata,
-    }).then((res)=>res.json()).then((data)=>
-    {
-        return createPost(user._id,post.description,data.url);
-    });
-   
-
-    if(x === 201){
-      Navigate(`/mypost/${user._id}`);
-      getItem();
-      setPostAdd(false);
-      toast.success('Post Added', {
-      position: toast.POSITION.TOP_CENTER
-      });
-      post.description="";
-      setFormValue(null);
-      setPostAdded(true);
-      setShowImage(false);
-    }
-    
-    else {
-      setPostAdd(false);
-        toast.error('Could not Post. Please try again later.', {
-        position: toast.POSITION.TOP_CENTER
-      });
-    }
-}
-
   const clickHandler = async (e) => {
-      
-
       if(!user.firstName)
       {
         toast.error('User first name is missing');

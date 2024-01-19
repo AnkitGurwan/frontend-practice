@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const Main = () => {
   const [users, setUsers] = useState([]);
 
-  const url = "https://backend-pw4m.onrender.com"
+  const url = "http://localhost:5000"
 
 
   const getItem = async () => {
@@ -69,7 +69,7 @@ const Main = () => {
             <h2 className="text-2xl font-semibold mb-6 font-mono ml-1">User List</h2>
             {
             users && users.length === 0 ? (
-              <p>No items found</p>
+              <p>Loading... (if do not load try adding new item)</p>
             ) : (
               <ul className='h-80 overflow-y-scroll'>
                 {users && users.length && users.map((user, index) => (
