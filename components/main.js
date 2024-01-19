@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const Main = () => {
   const [users, setUsers] = useState([]);
 
-  const url = "http://localhost:5000"
+  const url = "https://backend-pw4m.onrender.com"
 
 
   const getItem = async () => {

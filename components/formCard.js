@@ -12,7 +12,7 @@ const InputForm = () => {
   })
   const [formValue, setFormValue] = useState();
 
-  const url = "http://localhost:5000"
+  const url = "https://backend-pw4m.onrender.com"
 
   const changeHandler = (e) => {
     setUser({...user,[e.target.name]:e.target.value});
